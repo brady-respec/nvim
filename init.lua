@@ -1,3 +1,6 @@
 require("brady.plugins-setup")
 require("brady.core.options")
 require("brady.core.keymaps")
+require("brady.plugins.nvterm")
+require("brady.plugins.harpoon")
+require("brady.plugins.telescope")

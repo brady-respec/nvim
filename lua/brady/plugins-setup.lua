@@ -183,37 +183,6 @@ require('lazy').setup({
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
-require('telescope').setup {
-  defaults = {
-    mappings = {
-      i = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
-      },
-    },
-  },
-}
-
--- Enable telescope fzf native, if installed
-pcall(require('telescope').load_extension, 'fzf')
-
--- See `:help telescope.builtin`
-vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
-vim.keymap.set('n', '<leader>/', function()
-  -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    winblend = 10,
-    previewer = false,
-  })
-end, { desc = '[/] Fuzzily search in current buffer' })
-
-vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
-vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
-vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
@@ -429,47 +398,6 @@ cmp.setup {
   },
 }
 
--- Harpoon stuff
-local mark = require ("harpoon.mark")
-local ui = require ("harpoon.ui")
-
-vim.keymap.set("n", "<leader>m", mark.add_file)
-vim.keymap.set("n", "<leader>h", ui.toggle_quick_menu)
-vim.keymap.set("n", "<A-j>", function() ui.nav_file(1) end)
-vim.keymap.set("n", "<A-k>", function() ui.nav_file(2) end)
-vim.keymap.set("n", "<A-l>", function() ui.nav_file(3) end)
-vim.keymap.set("n", "<A-'>", function() ui.nav_file(4) end)
-
---Nvterm stuff
-require("nvterm").setup({
-  terminals = {
-    shell = vim.o.shell,
-    list = {},
-    type_opts = {
-      float = {
-        relative = 'editor',
-        row = 0.3,
-        col = 0.25,
-        width = 0.5,
-        height = 0.4,
-        border = "single",
-      },
-      horizontal = { location = "rightbelow", split_ratio = .3, },
-      vertical = { location = "rightbelow", split_ratio = .5 },
-    }
-  },
-  behavior = {
-    autoclose_on_quit = {
-      enabled = false,
-      confirm = true,
-    },
-    close_on_exit = true,
-    auto_insert = true,
-  },
-})
-vim.keymap.set({"n", "t"}, "<A-i>", function () require("nvterm.terminal").toggle("float") end)
-vim.keymap.set({"n", "t"}, "<A-h>", function () require("nvterm.terminal").toggle("horizontal") end)
-vim.keymap.set({"n", "t"}, "<A-v>", function () require("nvterm.terminal").toggle("vertical") end)
 
 vim.g.copilot_assume_mapped = true
 
