@@ -301,7 +301,7 @@ vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
 
 -- Set keymap to close windows
-vim.keymap.set('n', '<leader>x', ":wq<CR>")
+vim.keymap.set('n', '<leader>x', ":q<CR>")
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
