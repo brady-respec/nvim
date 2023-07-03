@@ -5,6 +5,7 @@
 =====================================================================
 
 Kickstart.nvim is *not* a distribution.
+-- test
 
 Kickstart.nvim is a template for your own configuration.
   The goal is that you can read every line of code, top-to-bottom, understand
