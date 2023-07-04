@@ -1,7 +1,7 @@
 vim.g.mapleader = ' '
 
 -- Bring up file explorer
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Toggle NetRW File Explorer' })
 
 -- Set keymaps to navigate windows
 vim.keymap.set('n', '<A-h>', '<C-w>h')
