@@ -16,4 +16,14 @@ saga.setup {
       normal_bg = '#022746',
     },
   },
+  finder = {
+    keys = {
+      jump_to = 'p',
+      expand_or_jump_to = 'o',
+      vsplit = 'v',
+      split = 'h',
+      quit = { 'q', '<ESC>' },
+      close_in_preview = 'q',
+    },
+  },
 }

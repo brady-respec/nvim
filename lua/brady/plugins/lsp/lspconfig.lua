@@ -28,18 +28,21 @@ local on_attach = function(client, bufnr)
   lsp_signature.on_attach(lsp_signature_config, bufnr)
 
   -- set keybinds
-  keymap.set('n', 'gl', '<cmd>Lspsaga lsp_finder<CR>', opts) -- show definition, references
-  keymap.set('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts) -- got to declaration
-  keymap.set('n', 'gd', '<cmd>Lspsaga peek_definition<CR>', opts) -- see definition and make edits in window
-  keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts) -- go to implementation
-  keymap.set('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>', opts) -- see available code actions
-  keymap.set('n', '<leader>rn', '<cmd>Lspsaga rename<CR>', opts) -- smart rename
-  keymap.set('n', '<leader>D', '<cmd>Lspsaga show_line_diagnostics<CR>', opts) -- show  diagnostics for line
-  keymap.set('n', '<leader>d', '<cmd>Lspsaga show_cursor_diagnostics<CR>', opts) -- show diagnostics for cursor
-  keymap.set('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts) -- jump to previous diagnostic in buffer
-  keymap.set('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<CR>', opts) -- jump to next diagnostic in buffer
-  keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>', opts) -- show documentation for what is under cursor
-  keymap.set('n', '<leader>o', '<cmd>LSoutlineToggle<CR>', opts) -- see outline on right hand side
+  keymap.set('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', { buffer = bufnr, desc = 'LSP: Go to Declaration' }) -- got to declaration
+  keymap.set('n', 'gd', '<cmd>Lspsaga goto_definition<CR>', { buffer = bufnr, desc = 'LSP: Go to Definition' }) -- see definition and make edits in window
+  keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', { buffer = bufnr, desc = 'LSP: Go to Implementation' }) -- go to implementation
+  keymap.set('n', '<leader>pd', '<cmd>Lspsaga peek_definition<CR>', { buffer = bufnr, desc = 'LSP: Peek Definition' }) -- see definition and make edits in window
+  keymap.set('n', '<leader>pf', '<cmd>Lspsaga lsp_finder<CR>', { buffer = bufnr, desc = 'LSP: Finder' }) -- show definition, references
+
+  keymap.set('n', '<leader>fm', '<cmd>lua vim.lsp.buf.format()<CR>', { buffer = bufnr, desc = 'LSP: Format Buffer' })
+
+  keymap.set('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>', { buffer = bufnr, desc = 'LSP: Code Action' }) -- see available code actions
+  keymap.set('n', '<leader>rn', '<cmd>Lspsaga rename<CR>', { buffer = bufnr, desc = 'LSP: Rename' }) -- smart rename
+  keymap.set('n', '<leader>D', '<cmd>Lspsaga show_line_diagnostics<CR>', { buffer = bufnr, desc = 'LSP: Show Line Diagnostics' }) -- show  diagnostics for line
+  keymap.set('n', '<leader>d', '<cmd>Lspsaga show_cursor_diagnostics<CR>', { buffer = bufnr, desc = 'LSP: Show Cursor Diagnostics' }) -- show diagnostics for cursor
+  keymap.set('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<CR>', { buffer = bufnr, desc = 'LSP: Jump Previous Diagnostic' }) -- jump to previous diagnostic in buffer
+  keymap.set('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<CR>', { buffer = bufnr, desc = 'LSP: Jump Next Diagnostic' }) -- jump to next diagnostic in buffer
+  keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>', { buffer = bufnr, desc = 'LSP: Hover Documentation' }) -- show documentation for what is under cursor
 end
 
 local capabilities = cmp_nvim_lsp.default_capabilities()
