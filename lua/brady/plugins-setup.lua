@@ -28,6 +28,9 @@ require('lazy').setup({
   -- Gitsigns
   'lewis6991/gitsigns.nvim',
 
+  -- Vim-Maximizer
+  'szw/vim-maximizer',
+
   {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -90,11 +93,7 @@ require('lazy').setup({
 
   {
     -- Theme inspired by Atom
-    'ellisonleao/gruvbox.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'gruvbox'
-    end,
+    'EdenEast/nightfox.nvim',
   },
 
   -- Set lualine as statusline
@@ -146,12 +145,6 @@ require('lazy').setup({
       require('nvim-surround').setup {
         -- Configuration here, or leave empty to use defaults
       }
-    end,
-  },
-  {
-    'NvChad/nvterm',
-    config = function()
-      require('nvterm').setup()
     end,
   },
   {

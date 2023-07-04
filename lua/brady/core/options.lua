@@ -27,6 +27,7 @@ vim.o.clipboard = 'unnamedplus'
 
 -- Enable break indent
 vim.o.breakindent = true
+vim.opt.autoindent = true
 
 -- Save undo history
 vim.o.undofile = true
@@ -48,3 +49,10 @@ vim.o.completeopt = 'menu,menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
+
+-- Consider string-string as whole word
+vim.opt.iskeyword:append '-'
+--
+-- split windows
+vim.opt.splitright = true -- split vertical window to the right
+vim.opt.splitbelow = true -- split horizontal window to the bottom
