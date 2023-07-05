@@ -39,6 +39,9 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+-- Keymap to make $ not select end of line in visual mode
+vim.keymap.set('v', '$', 'g_')
+
 ----------------------
 -- Plugin Keybinds
 ----------------------
