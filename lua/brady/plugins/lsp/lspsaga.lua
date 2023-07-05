@@ -13,10 +13,11 @@ saga.setup {
   },
   ui = {
     colors = {
-      normal_bg = '#022746',
+      -- normal_bg = '#022746',
     },
   },
   finder = {
+    min_width = 100,
     keys = {
       jump_to = 'p',
       expand_or_jump_to = 'o',

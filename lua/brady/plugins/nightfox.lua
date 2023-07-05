@@ -18,14 +18,14 @@ require('nightfox').setup {
       },
     },
     styles = { -- Style to be applied to different syntax groups
-      comments = 'italic', -- Value is any valid attr-list value `:help attr-list`
+      comments = 'NONE', -- Value is any valid attr-list value `:help attr-list`
       conditionals = 'NONE',
       constants = 'NONE',
       functions = 'NONE',
       keywords = 'NONE',
       numbers = 'NONE',
       operators = 'NONE',
-      strings = 'italic',
+      strings = 'NONE',
       types = 'NONE',
       variables = 'NONE',
     },
@@ -44,4 +44,4 @@ require('nightfox').setup {
 }
 
 -- setup must be called before loading
-vim.cmd 'colorscheme nightfox'
+vim.cmd 'colorscheme carbonfox'
