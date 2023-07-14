@@ -15,6 +15,10 @@ vim.keymap.set('n', '<leader>sh', '<C-w>s', { desc = 'Split Window Horizontally'
 vim.keymap.set('n', '<leader>se', '<C-w>=', { desc = 'Make Split Windows Equal Size' }) -- make split windows equal width & height
 vim.keymap.set('n', '<leader>sx', ':close<CR>', { desc = 'Close Current Split Window' }) -- close current split window
 
+-- make it so when you indent a block, the block stays selected
+vim.keymap.set('v', '>', '>gv')
+vim.keymap.set('v', '<', '<gv')
+
 -- Don't know what this does. Got it fron kickstart
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
