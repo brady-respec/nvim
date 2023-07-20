@@ -67,7 +67,6 @@ vim.keymap.set('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
--- This is a test comment
 -- Git keybinds
 vim.keymap.set('n', '<leader>gs', ':Git<CR>', { desc = '[G]it [S]tatus: Fugitive' })
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
