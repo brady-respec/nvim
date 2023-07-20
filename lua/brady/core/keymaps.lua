@@ -3,11 +3,11 @@ vim.g.mapleader = ' '
 -- Bring up file explorer
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Toggle NetRW File Explorer' })
 
--- Set keymaps to navigate windows
-vim.keymap.set('n', '<A-h>', '<C-w>h')
-vim.keymap.set('n', '<A-j>', '<C-w>j')
-vim.keymap.set('n', '<A-k>', '<C-w>k')
-vim.keymap.set('n', '<A-l>', '<C-w>l')
+-- -- Set keymaps to navigate windows
+vim.keymap.set('n', '<C-left>', '<C-w>h')
+vim.keymap.set('n', '<C-down>', '<C-w>j')
+vim.keymap.set('n', '<C-up>', '<C-w>k')
+vim.keymap.set('n', '<C-right>', '<C-w>l')
 
 -- window management
 vim.keymap.set('n', '<leader>sv', '<C-w>v', { desc = 'Split Window Vertically' }) -- split window vertically
@@ -47,7 +47,7 @@ vim.keymap.set('v', '$', 'g_')
 ----------------------
 
 -- Lspsaga keymaps
-vim.keymap.set({ 'n', 't' }, '<A-i>', '<cmd>Lspsaga term_toggle<CR>', { desc = 'Open LspSaga Terminal' }) -- see outline on right hand side
+vim.keymap.set({ 'n', 't' }, "<A-'>", '<cmd>Lspsaga term_toggle<CR>', { desc = 'Open LspSaga Terminal' }) -- see outline on right hand side
 
 -- Vim-Maximizer
 vim.keymap.set('n', '<leader>sm', ':MaximizerToggle<CR>', { desc = 'Vim-Maximizer: Toggle Maximize' }) -- toggle split window maximization
