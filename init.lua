@@ -1,18 +1,2 @@
-require 'brady.plugins-setup'
-require 'brady.core.options'
-require 'brady.core.keymaps'
-require 'brady.plugins.harpoon'
-require 'brady.plugins.telescope'
-require 'brady.plugins.treesitter'
-require 'brady.plugins.gitsigns'
-require 'brady.plugins.copilot'
-require 'brady.plugins.lualine'
-require 'brady.plugins.nvim-cmp'
-require 'brady.plugins.lsp.mason'
-require 'brady.plugins.lsp.lspconfig'
-require 'brady.plugins.lsp.lspsaga'
-require 'brady.plugins.lsp.null-ls'
-require 'brady.plugins.nightfox'
-
--- Plugin Graveyard
--- require 'brady.plugins.nvterm'
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
