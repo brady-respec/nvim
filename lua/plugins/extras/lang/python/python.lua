@@ -2,14 +2,26 @@ return {
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
-      table.insert(opts.ensure_installed, "black")
+      -- vim.list_extend(opts.ensure_installed, { "pyright", "black", "ruff-lsp", "ruff" })
+      vim.list_extend(opts.ensure_installed, {
+        "black",
+        "ruff",
+      })
     end,
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
     opts = function(_, opts)
       local nls = require("null-ls")
-      table.insert(opts.sources, nls.builtins.formatting.black)
+      opts.sources = vim.list_extend(opts.sources, {
+        -- Order of formatters matters. They are used in order of appearance.
+        nls.builtins.formatting.ruff,
+        nls.builtins.formatting.black,
+        -- nls.builtins.formatting.black.with({
+        --   extra_args = { "--preview" },
+        -- }),
+        nls.builtins.diagnostics.ruff,
+      })
     end,
   },
   {
@@ -20,16 +32,33 @@ return {
     end,
   },
   {
-    "linux-cultist/venv-selector.nvim",
-    cmd = "VenvSelect",
+    "neovim/nvim-lspconfig",
+    dependencies = {},
     opts = {
-      name = {
-        "venv",
-        ".venv",
-        "env",
-        ".env",
+      format = { timeout = 5000 },
+      servers = {
+        pyright = {},
+        ruff_lsp = {},
+        jedi_language_server = {},
+      },
+      setup = {
+        ruff_lsp = function()
+          require("lazyvim.util").on_attach(function(client, _)
+            if client.name == "ruff_lsp" then
+              -- Disable hover in favor of Pyright
+              client.server_capabilities.hoverProvider = false
+            end
+          end)
+        end,
+        pyright = function()
+          require("lazyvim.util").on_attach(function(client, _)
+            if client.name == "pyright" then
+              -- disable hover in favor of jedi-language-server
+              client.server_capabilities.hoverProvider = false
+            end
+          end)
+        end,
       },
     },
-    keys = { { "<leader>cv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
   },
 }

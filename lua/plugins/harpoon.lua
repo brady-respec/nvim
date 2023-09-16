@@ -19,15 +19,15 @@ return {
         desc = "Harpoon toggle",
       },
       {
-        "<C-1>",
+        "<a-1>",
         function()
           require("harpoon.ui").nav_file(1)
         end,
-        silent = true,
+        silent = false,
         desc = "Harpoon - Nav to File 1",
       },
       {
-        "<C-2>",
+        "<a-2>",
         function()
           require("harpoon.ui").nav_file(2)
         end,
@@ -35,7 +35,7 @@ return {
         desc = "Harpoon - Nav to File 2",
       },
       {
-        "<C-3>",
+        "<a-3>",
         function()
           require("harpoon.ui").nav_file(3)
         end,
@@ -43,7 +43,7 @@ return {
         desc = "Harpoon - Nav to File 3",
       },
       {
-        "<C-4>",
+        "<a-4>",
         function()
           require("harpoon.ui").nav_file(4)
         end,
